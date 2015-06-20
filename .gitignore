@@ -1,0 +1,10 @@
+api/node_modules
+ui/node_modules
+ui/client/lib
+ui/client/application.css
+.npm
+.cache
+.bash_history
+.idea
+
+npm-debug.log

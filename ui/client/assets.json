@@ -1,0 +1,23 @@
+{
+  "js": [
+    "lib/angular/angular.js",
+    "lib/angular-ui-router/release/angular-ui-router.js",
+    "lib/jquery/dist/jquery.js",
+    "lib/lodash/lodash.js",
+    "lib/angular-google-maps/dist/angular-google-maps.js",
+    "lib/ngstorage/ngStorage.js",
+    "lib/bootstrap-less/js/dropdown.js",
+    "lib/bootstrap-less/js/modal.js",
+    "application.js",
+    "controllers/application.js",
+    "controllers/home.js",
+    "controllers/login.js",
+    "services/auth.js",
+    "services/location.js",
+    "services/user.js",
+    "routes.js"
+  ],
+  "css": [
+    "application.css"
+  ]
+}

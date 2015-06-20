@@ -1,0 +1,44 @@
+
+@brand-primary: #377791;
+
+body {
+  background-color: @brand-primary;
+}
+
+.login-form {
+  padding-left: 20px;
+  padding-right: 20px;
+  input {margin-bottom: 10px;}
+}
+
+.angular-google-map-container { height: 400px; }
+
+.sort-icon {
+  color: @brand-primary
+}
+
+.sort-bar {
+  &:hover {
+    background-color: lighten(@brand-primary, 50%);
+    cursor: pointer;
+  }
+}
+
+.scroll-horizontal {
+  overflow-y: auto;
+}
+
+.title {
+  padding: 10px;
+}
+
+.navbar {border-radius: 0 !important;}
+
+.noselect {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}

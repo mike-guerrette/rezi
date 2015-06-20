@@ -1,0 +1,25 @@
+db:
+  image: postgres
+  ports:
+    - 5432:5432
+  environment:
+    POSTGRES_USER: docker
+    POSTGRES_PASSWORD: docker
+api:
+  build: ./api
+  working_dir: /src/
+  command: node_modules/.bin/grunt serve
+  ports:
+    - "4000:4000"
+  volumes:
+    - "api:/src/api"
+  links:
+    - db
+ui:
+  build: ./ui
+  working_dir: /src/
+  command: node_modules/.bin/grunt serve
+  ports:
+    - "9000:9000"
+  volumes:
+    - "ui:/src/ui"
