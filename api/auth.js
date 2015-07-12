@@ -1,7 +1,8 @@
 'use strict';
 
 var jwt = require('jwt-simple'),
-    moment = require('moment');
+    moment = require('moment'),
+    _ = require('lodash');
 
 
 var controller;
@@ -21,21 +22,20 @@ module.exports.init = function(config, db) {
         });
     }
 
-    controller._token = function(username) {
+    controller._token = function(username, options) {
         //Generate JSON Web token
         var expires = moment()
             .add(config.TOKEN_TLL_DAYS, 'days')
             .valueOf();
         //Encode inner token
-        var token = jwt.encode({
+        var token = jwt.encode(_.merge(options || {}, {
             iss: username,
             exp: expires
-        }, config.SECRET_KEY);
+        }), config.SECRET_KEY);
 
         return {
             token: token,
-            expires: expires,
-            user: username
+            expires: expires
         }
     };
 
@@ -51,7 +51,10 @@ module.exports.init = function(config, db) {
             if (err || !user) {
                 return _unauthorized(res);
             }
-            res.json(controller._token(user.id));
+            console.log('User: ', JSON.stringify(user));
+            res.json(controller._token(user.id, {
+
+            }));
         });
     };
 

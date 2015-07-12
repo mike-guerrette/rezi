@@ -5,5 +5,6 @@ module.exports = {
     PG_PORT: 5432,
     PG_USER: 'docker',
     PG_PASS: 'docker',
-    PG_DB: 'rezi_dev'
+    PG_DB: 'rezi_dev',
+    SECRET_KEY: 'not-really-a-key'
 };

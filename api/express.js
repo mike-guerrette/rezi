@@ -3,15 +3,19 @@
 module.exports = function(config) {
 	var express = require('express'),
 		routes = require('./routes'),
-		cors = require('cors');
+		cors = require('cors'),
+        bodyParser = require('body-parser');
 
 	// App
 	var app = express(),
 		db = require('./db').init(config);
 
     app.use(cors({
-        origin: 'http://localhost:9000'
+        origin: 'http://localhost:9000',
+		credentials: true
     }));
+
+    app.use(bodyParser.json());
 
 	app.set('port', (process.env.PORT || 4000));
 

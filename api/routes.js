@@ -8,6 +8,10 @@ module.exports = function(config, app, db) {
         locations: require('./controllers/locations').init(db)
     };
 
+    app.get('/api/ping', function(req, res) {
+        return res.status(200).send('OK');
+    });
+
     //Auth
     app.post('/api/users/register', controllers.users.register);
     app.post('/api/token', auth.getToken);

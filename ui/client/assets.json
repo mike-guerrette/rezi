@@ -5,7 +5,7 @@
     "lib/jquery/dist/jquery.js",
     "lib/lodash/lodash.js",
     "lib/angular-google-maps/dist/angular-google-maps.js",
-    "lib/ngstorage/ngStorage.js",
+    "lib/angular-jwt/angular-jwt.js",
     "lib/bootstrap-less/js/dropdown.js",
     "lib/bootstrap-less/js/modal.js",
     "application.js",
@@ -15,6 +15,7 @@
     "services/auth.js",
     "services/location.js",
     "services/user.js",
+    "config.js",
     "routes.js"
   ],
   "css": [

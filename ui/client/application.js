@@ -4,20 +4,15 @@
     angular.module('rezi', [
         'ui.router',
         'uiGmapgoogle-maps',
-        'ngStorage'
+        'angular-jwt'
     ])
         .config(function(uiGmapGoogleMapApiProvider) {
             uiGmapGoogleMapApiProvider.configure({});
         })
-        .run(function(AuthService, $location, $rootScope, $localStorage, $http) {
-            var token = $localStorage.token;
-            var user = $localStorage.userID;
-            if (!token) {
-                $rootScope.currentUser = null;
-                $location.path('/login');
-            } else {
-                $http.defaults.headers.common.Authorization = token;
-                $rootScope.currentUser = {username: user, token: token};
+        .run(function(AuthService, $location, $rootScope) {
+            var token = localStorage.getItem('token');
+            if (token !== null) {
+                AuthService.loadToken(token);
             }
             $rootScope.$on('stateChangeStart', function() {
                 if(!AuthService.isAuthenticated()) {

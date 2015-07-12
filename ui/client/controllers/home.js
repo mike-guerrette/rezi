@@ -9,6 +9,8 @@ angular.module('rezi')
                 if (err) {console.log(err);}
                 $scope.user = data;
 
+                console.log($scope.user);
+
                 $scope.map = {
                     center: {
                         latitude:  $scope.user.locations[0].lat,
@@ -57,18 +59,11 @@ angular.module('rezi')
                 ];
             });
 
-            reziAudio.play();
-
-
-
-            console.log('MAP: ', $scope.map);
-            console.log('CIRCLES: ', $scope.circles);
-
             $scope.resize = function() {
                 console.log('Resized!');
             };
 
-            uiGmapGoogleMapApi.then(function(maps) {
+            uiGmapGoogleMapApi.then(function() {
                 console.log('Maps ready!');
             });
         }
